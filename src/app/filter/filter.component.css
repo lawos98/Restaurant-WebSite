@@ -1,0 +1,50 @@
+section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.box{
+  color: whitesmoke;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.3);
+  border: rgba(255, 255, 255, 0.7) 1px solid;
+  width: 50rem;
+  height: 25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-items: center;
+  align-content: center;
+  position: relative;
+  padding: 5rem;
+  margin: 3rem;
+  z-index: 100;
+}
+.filterButton{
+  color: whitesmoke;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.3);
+  border: rgba(255, 255, 255, 0.7) 1px solid;
+  width: 60rem;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 3rem 0 0 0;
+  font-size: 2em;
+  cursor: pointer;
+  transition: ease-in-out 1s;
+}
+.filterButton:hover{
+  background: rgba(255, 255, 255, 0.5);
+}
+@media(width<1000px){
+  .filterButton{
+    width: 50vw;
+  }
+  .box{
+    width: 50vw;
+  }
+}

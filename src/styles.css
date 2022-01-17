@@ -1,0 +1,17 @@
+body{
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(90deg,#202c3a,#404f64,#202c3a);
+  overflow-x: hidden;
+}
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+  }
+}
+button:hover{
+  animation: pulse-animation 2s infinite;
+}

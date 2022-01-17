@@ -1,0 +1,32 @@
+<section>
+  <div class="box" [@flyLeftInOut]="'in'">
+    <div class="boxPersistence">
+      <div class="PersistenceInfo">
+        Persistence
+      </div>
+      <div class="boxButtons">
+        <button (click)="updateGlobalData(1)" [ngClass]="returnClass(1)">LOCAL</button>
+        <button (click)="updateGlobalData(0)" [ngClass]="returnClass(0)">SESSION</button>
+        <button (click)="updateGlobalData(2)" [ngClass]="returnClass(2)">NONE</button>
+      </div>
+    </div>
+  </div>
+  <div class="box" [@flyLeftInOut]="'in'">
+    <div class="boxUser">
+      <div class="userInfo">
+        Set Users Roles:
+      </div>
+    </div>
+    <div class="boxUser" *ngFor="let user of UserList">
+      <div class="userInfo">{{user.username}}</div>
+      <div class="boxButtons">
+        <button *ngIf="!checkRole(user,'ban')" (click)="giveRole(user,'ban')">Ban</button>
+        <button *ngIf="checkRole(user,'ban')" (click)="takeRole(user,'ban')">UnBan</button>
+        <button *ngIf="!checkRole(user,'moderator')" (click)="giveRole(user,'moderator')">Give Mod</button>
+        <button *ngIf="checkRole(user,'moderator')" (click)="takeRole(user,'moderator')">Ungive Mod</button>
+        <button *ngIf="!checkRole(user,'admin')" (click)="giveRole(user,'admin')">Give Admin</button>
+        <button *ngIf="checkRole(user,'admin')" (click)="takeRole(user,'admin')">Ungive admin</button>
+      </div>
+    </div>
+  </div>
+</section>

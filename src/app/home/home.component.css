@@ -1,0 +1,50 @@
+section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box{
+  color: whitesmoke;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.3);
+  border: rgba(255, 255, 255, 0.7) 1px solid;
+  width: 50rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-items: center;
+  align-content: center;
+  position: relative;
+  padding: 5rem;
+  margin: 3rem;
+}
+iframe:after{
+  border: 20px solid white;
+}
+h1{
+  font-weight: 1000;
+  font-size: 3em;
+}
+h2{
+  font-weight: 500;
+  font-size: 2em;
+}
+h3{
+  font-size: 1.2em;
+  font-weight: 100;
+}
+h4{
+  font-size: 1.1em;
+  font-weight: 100;
+  text-align: center;
+  margin: 1rem 0 0 0;
+}
+@media(width<1000px){
+  .box{
+    width: 50%;
+  }
+  iframe{
+    width: 50vw;
+    height: 50vw;
+  }
+}

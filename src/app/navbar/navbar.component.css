@@ -1,0 +1,100 @@
+.Box{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 10rem;
+  background: linear-gradient(90deg, #272c3b, #576373,#272c3b);;
+  font-size: 3em;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  color: crimson;
+  font-weight: 1000;
+}
+img{
+  height: 100%;
+  width: auto;
+}
+nav{
+  padding-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.SticyBox{
+  z-index: 100;
+}
+.buttonActive,.buttonNotActive{
+  width: 100%;
+  height: 5rem;
+  background: linear-gradient(90deg, #4e4e59, #576373,#4e4e59);
+  border: grey solid 1px;
+  margin: 1rem;
+  font-size: 2em;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.buttonActive:hover{
+  color: wheat;
+}
+.buttonNotActive{
+  animation: none;
+}
+.buttons{
+  width: 100vw;
+  height: 7rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  z-index: 5;
+  background: linear-gradient(230deg, #8e969f, #707075,#8e969f);
+}
+.iconOff{
+  color: white;
+}
+.iconOn{
+  color: red;
+}
+.box-log{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+fa-icon{
+  margin-right: 1rem;
+}
+.HamburgerIcon{
+  color: white;
+  font-size: 3rem;
+}
+@media(width<1200px){
+  .buttons{
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+  }
+  .buttonActive{
+    width: 80%;
+    margin:  1rem;
+  }
+  .box-log{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    align-content: center;
+  }
+  .buttonNotActive{
+    width: 80%;
+    margin:  1rem;
+  }
+  img{
+
+  }
+}

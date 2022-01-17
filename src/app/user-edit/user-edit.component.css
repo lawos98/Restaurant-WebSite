@@ -1,0 +1,93 @@
+section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.box{
+  color: whitesmoke;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.3);
+  border: rgba(255, 255, 255, 0.7) 1px solid;
+  width: 80rem;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-items: center;
+  align-content: center;
+  position: relative;
+  padding: 5rem;
+  margin: 3rem;
+}
+.boxUser{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid white;
+}
+.boxButtons{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+button{
+  margin: 0 1rem 0 1rem;
+  height: 3rem;
+  width: 10rem;
+  background: rgba(245, 245, 245, 0.30);
+  border: rgba(245, 245, 245, 0.80) solid 0.1rem;
+  text-align: center;
+  text-justify: auto;
+  color: white;
+  font-size: 1.3em;
+  padding: 0.5rem;
+}
+button:hover{
+  background: rgba(245, 245, 245, 0.50);
+  border: rgba(245, 245, 245, 0.90) solid 0.3rem;
+}
+.userInfo{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  font-size: 2rem;
+}
+.boxPersistence{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+}
+.PersistenceInfo{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 2rem;
+}
+.buttonActiveP{
+  background: rgba(0, 188, 255, 0.5);
+}
+@media(width<1000px){
+  .box{
+    width: 50vw;
+  }
+  .boxPersistence{
+    flex-direction: column;
+  }
+  .boxUser{
+    flex-direction: column;
+  }
+  .boxButtons{
+    flex-direction: column;
+  }
+  button{
+    width: 50vw;
+  }
+  .userInfo {
+    margin-bottom: 1rem;
+  }
+}

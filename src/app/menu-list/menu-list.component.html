@@ -1,0 +1,54 @@
+<section>
+<app-filter (filterUpdate)="onFilterUpdate($event)"></app-filter>
+<div class="main">
+  <div class="dish" [@fadeGrow] *ngFor="let dish of FilerMenuList| paginate: { itemsPerPage: itemsPerPage, currentPage: page };let odd=odd">
+    <div class="boxBorder" [ngClass]="checkClass(dish.inStock,0)"></div>
+    <div class="boxOutside">
+      <div class="box" [ngClass]="checkValue(dish.qty[0],odd)">
+          <a [routerLink]="['/Dish',dish.id]" *ngIf="isLoggedIn">
+          <img class="dishImage" [src]="getSource(dish)">
+          </a>
+          <img class="dishImage" [src]="getSource(dish)" *ngIf="!isLoggedIn">
+        <div class="itemTitle">
+          <div class="dishText">
+            {{dish.title}}
+          </div>
+          <div class="dishText">
+            {{returnPrice(dish)}}
+          </div>
+        </div>
+        <div class="info">
+        </div>
+        <div class="box2">
+          <div class="rating">
+            <div class="itemtext">Score: {{getAVG(dish.ratings)|number:'1.1-1'}} by {{dish.ratings.length}}</div>
+            <img [src]="rating(dish,1)" class="star">
+            <img [src]="rating(dish,2)" class="star">
+            <img [src]="rating(dish,3)" class="star">
+            <img [src]="rating(dish,4)" class="star">
+            <img [src]="rating(dish,5)" class="star">
+          </div>
+          <div class="selectCount" *ngIf="isLoggedIn">
+            Count:{{NumberOfDishInCart(dish)}}
+            <div class="buttons">
+              <button (click)="addDish(dish,+1)" *ngIf="NumberOfDishInCart(dish)!=dish.inStock"><fa-icon [icon]="plusIcon"></fa-icon> </button>
+              <button (click)="addDish(dish,-1)" *ngIf="NumberOfDishInCart(dish)>0"><fa-icon [icon]="minusIcon"></fa-icon> </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="pagination">
+    <div class="paginationSelect">
+      Items Per Page
+    <select [(ngModel)]="itemsPerPage" (change)="page=1">
+      <option *ngFor="let size of itemsPerPageArray" [ngValue]="size">
+        {{ size }}
+      </option>
+    </select>
+    </div>
+  <pagination-controls class="my-pagination" (pageChange)="page = $event"></pagination-controls>
+  </div>
+</section>

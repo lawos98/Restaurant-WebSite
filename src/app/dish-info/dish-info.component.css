@@ -1,0 +1,162 @@
+section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.imageSlider{
+  display: flex;
+  justify-content: center;
+  alignment: center;
+}
+.box2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rating,.selectCount{
+  margin: 1rem;
+  width: 25rem;
+  height: 5rem;
+  font-size: 1.1em;
+  text-align: center;
+}
+.buttonDish{
+  margin: 1rem;
+  width: 3rem;
+  height: 3rem;
+  background: rgba(245, 245, 245, 0.30);
+  border: rgba(245, 245, 245, 0.80) solid 0.1rem;
+}
+.buttonDish:hover{
+  background: rgba(245, 245, 245, 0.50);
+  border: rgba(245, 245, 245, 0.90) solid 0.3rem;
+}
+.star{
+  width: 2rem;
+  height: 2rem;
+}
+.box{
+  color: whitesmoke;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.3);
+  border: rgba(255, 255, 255, 0.7) 1px solid;
+  width: 80rem;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-items: center;
+  align-content: center;
+  position: relative;
+  padding: 5rem;
+  margin: 3rem;
+}
+.boxComments{
+  color: whitesmoke;
+}
+.comment{
+  background: rgba(255, 255, 255, 0.3);
+  border: rgba(255, 255, 255, 0.7) 1px solid;
+  margin: 3rem;
+  padding: 5rem;
+  font-size: 2em;
+  display: flex;
+  flex-direction: column;
+}
+.commentInfo{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: rgba(255, 255, 255, 0.7) 1px solid;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+input{
+  width: 100%;
+  height: 5rem;
+}
+.buttonSubmit{
+  margin: 1rem 0 1rem 0;
+  width: 10rem;
+  height: 4rem;
+  background: rgba(255, 255, 255, 0.3);
+  border: rgba(255, 255, 255, 0.7) 1px solid;
+  color: white;
+  font-size: 1.3em;
+}
+.formLabel{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.starAlt {
+  filter: hue-rotate(90deg);
+}
+.carousel{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+.buttonImageLeft{
+  height: 35rem;
+  width: 6rem;
+  background: transparent;
+  position: relative;
+  border: none;
+  left: 6rem;
+  opacity: 0;
+  transition: ease 1s;
+}
+.buttonImageRight{
+  height: 35rem;
+  width: 6rem;
+  background: transparent;
+  border: none;
+  position: relative;
+  right: 6rem;
+  opacity: 0;
+  transition: ease 1s;
+}
+.buttonImageRight:hover,.buttonImageLeft:hover{
+  animation: none;
+  opacity: 1;
+}
+.carouselItem{
+}
+.carouselImage{
+  height: 35rem;
+  width: auto;
+}
+h1{
+  text-align: center;
+  font-size: 5em;
+  font-weight: 1000;
+  margin: 0 0 5rem 0;
+}
+fa-icon{
+  font-size: 3rem;
+  color: lightgrey;
+}
+@media(width<1500px){
+  .box{
+    width: 50vw;
+  }
+  .carouselImage{
+    height: 30vw;
+    width: auto;
+  }
+  .buttonImageRight,.buttonImageLeft{
+    height: 30vw;
+  }
+  h1{
+    font-size: 2em;
+  }
+  h2{
+    font-size: 0.8em;
+  }
+  .buttonDish{
+    margin:0;
+  }
+}

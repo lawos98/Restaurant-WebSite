@@ -1,0 +1,50 @@
+<section>
+  <div class="filterButton" (click)="changeShowFiler()" [@flyLeftInOut]="'in'"><fa-icon [icon]="IconFilter"></fa-icon> </div>
+  <div class="box" *ngIf="showFilter" [@flyUpInOut]="'in'">
+    <div class="slider">
+      <ngx-slider [(value)]="minRating" [(highValue)]="maxRating" [options]="optionsRating"
+                  (userChange)="SendUpdateFilter()"></ngx-slider>
+    </div>
+    <div class="slider">
+      <ngx-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="optionsMoney"
+                  (userChange)="SendUpdateFilter()"></ngx-slider>
+    </div>
+    <ng-multiselect-dropdown [(ngModel)]="filterTitle"
+                             [placeholder]="'Select Dish Title'"
+                             [data]="getTitle()"
+                             [settings]="dropdownSettings"
+                             (onSelect)="SendUpdateFilter()"
+                             (onDeSelect)="SendUpdateFilter()"
+                             (onDeSelectAll)="SendUpdateFilter()">
+    </ng-multiselect-dropdown>
+    <ng-multiselect-dropdown [(ngModel)]="filterCategory"
+                             [placeholder]="'Select Dish Category'"
+                             [data]="getCategory()"
+                             [settings]="dropdownSettings"
+                             (onSelect)="SendUpdateFilter()"
+                             (onDeSelect)="SendUpdateFilter()">
+    </ng-multiselect-dropdown>
+    <ng-multiselect-dropdown [(ngModel)]="filterCuisine"
+                             [placeholder]="'Select Cuisine'"
+                             [data]="getCuisine()"
+                             [settings]="dropdownSettings"
+                             (onSelect)="SendUpdateFilter()"
+                             (onDeSelect)="SendUpdateFilter()">
+    </ng-multiselect-dropdown>
+    <ng-multiselect-dropdown [(ngModel)]="filterType"
+                             [placeholder]="'Select Dish Type'"
+                             [data]="getType()"
+                             [settings]="dropdownSettings"
+                             (onSelect)="SendUpdateFilter()"
+                             (onDeSelect)="SendUpdateFilter()">
+    </ng-multiselect-dropdown>
+    <ng-multiselect-dropdown [(ngModel)]="filterIngredients"
+                             [placeholder]="'Select Dish Ingredients'"
+                             [data]="getIngredients()"
+                             [settings]="dropdownSettings"
+                             (onSelect)="SendUpdateFilter()"
+                             (onDeSelect)="SendUpdateFilter()">
+    </ng-multiselect-dropdown>
+  </div>
+  <div class="boxBorder"></div>
+</section>

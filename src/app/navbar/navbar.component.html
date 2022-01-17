@@ -1,0 +1,23 @@
+<nav>
+  <div class="Box">
+    <img src="../../assets/imagies/title.png">
+  </div>
+  <div class="buttons">
+    <button class="buttonActive" *ngIf="showHamburger" [@flyUpInOut]="'in'"  (click)="showMenu=!showMenu"><fa-icon class="HamburgerIcon" [icon]="HamburgerIcon"></fa-icon></button>
+    <button class="buttonActive" routerLink="Home" *ngIf="showMenu" [@flyUpInOut]="'in'"><fa-icon [icon]="homeIcon"></fa-icon>Home</button>
+    <button class="buttonActive" routerLink="Menu" *ngIf="showMenu" [@flyUpInOut]="'in'"><fa-icon [icon]="menuIcon"></fa-icon>Menu</button>
+    <button class="buttonActive" routerLink="Cart" *ngIf="isLoggedIn&&showMenu" [@flyUpInOut]="'in'"><fa-icon [icon]="cartIcon"></fa-icon>Cart</button>
+    <button class="buttonActive" routerLink="AddDish" *ngIf="showModeratorBoard&&showMenu" [@flyUpInOut]="'in'" ><fa-icon [icon]="addDishIcon"></fa-icon>Edit</button>
+    <button class="buttonActive" routerLink="UserEdit" *ngIf="showAdminBoard&&showMenu" [@flyUpInOut]="'in'" ><fa-icon [icon]="userEdit"></fa-icon>Users</button>
+    <div class="box-log" *ngIf="!isLoggedIn&&showMenu">
+      <button class="buttonActive"  routerLink="Register" [@flyUpInOut]="'in'"><fa-icon [icon]="registerIcon"></fa-icon>Register</button>
+      <button class="buttonActive"  routerLink="Login" [@flyUpInOut]="'in'"><fa-icon [icon]="loginIcon"></fa-icon>Login</button>
+    </div>
+    <div class="box-log" *ngIf="isLoggedIn&&showMenu">
+      <button class="buttonNotActive" [@flyUpInOut]="'in'">{{username}}</button>
+      <button class="buttonActive" (click)="logout()" [@flyUpInOut]="'in'"><fa-icon [icon]="logOutIcon"></fa-icon>Logout</button>
+    </div>
+    <button class="buttonActive" (click)="changePrice()" *ngIf="isLoggedIn&&showMenu"  [@flyUpInOut]="'in'" >{{returnTextValue()}}</button>
+  </div>
+</nav>
+<router-outlet></router-outlet>

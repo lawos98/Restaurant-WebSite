@@ -1,0 +1,34 @@
+<section>
+  <div class="box" [@flyLeftInOut]="'in'">
+    <div class="items">
+      <div class="dish" *ngFor="let dish of CartList">
+        <div class="boxLeft">
+          {{dish.title}}
+        </div>
+        <div class="boxRight">
+          <div class="boxButtons">
+            <button class="buttonDelete" (click)="deleteDish(dish)">
+              <fa-icon [icon]="trashIcon"></fa-icon>
+            </button>
+            <button class="buttonAdd" (click)="addDish(dish,+1)" *ngIf="NumberOfDishInCart(dish)!=dish.inStock">
+              <fa-icon [icon]="plusIcon"></fa-icon>
+            </button>
+            <button class="buttonRemove" (click)="addDish(dish,-1)" *ngIf="NumberOfDishInCart(dish)>0">
+              <fa-icon [icon]="minusIcon"></fa-icon>
+            </button>
+          </div>
+          <div class="boxPrice">
+            {{NumberOfDishInCart(dish)}} x {{getCurrentMoney(dish)}} {{returnPriceSigil()}}
+            = {{NumberOfDishInCart(dish) * getCurrentMoney(dish)}} {{returnPriceSigil()}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="boxSum" *ngIf="isNotEmptyCart()">
+      Suma: {{getPriceSum()}} {{returnPriceSigil()}}
+    </div>
+    <button class="buttonBuy" (click)="buyDish()" *ngIf="isNotEmptyCart()">Buy</button>
+    <div class="emptyCart" *ngIf="!isNotEmptyCart()">Your Cart is Empty</div>
+  </div>
+</section>
+

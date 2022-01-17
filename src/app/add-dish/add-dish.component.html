@@ -1,0 +1,131 @@
+<section>
+  <div class="box" [@flyLeftInOut]="'in'">
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            required
+            [(ngModel)]="dish.title"
+            name="title"
+          />
+        </div>
+        <div class="form-group">
+          <label for="qty0">Price in Euro</label>
+          <input
+            class="form-control"
+            id="qty0"
+            required
+            [(ngModel)]="dish.qty[0]"
+            name="qty0"
+          />
+        </div>
+        <div class="form-group">
+          <label for="qty1">Price in Dolars</label>
+          <input
+            class="form-control"
+            id="qty1"
+            required
+            [(ngModel)]="dish.qty[1]"
+            name="qty1"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="category">Category</label>
+          <input
+            class="form-control"
+            id="category"
+            required
+            [(ngModel)]="dish.category"
+            name="category"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="type">Type</label>
+          <input
+            class="form-control"
+            id="type"
+            required
+            [(ngModel)]="dish.type"
+            name="type"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="cuisine">Cuisine</label>
+          <input
+            class="form-control"
+            id="cuisine"
+            required
+            [(ngModel)]="dish.cuisine"
+            name="cuisine"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="ingredients">Ingredients (Use a comma to separate)</label>
+          <input
+            class="form-control"
+            id="ingredients"
+            required
+            [(ngModel)]="ingredientsString"
+            name="ingredients"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="inStock">inStock</label>
+          <input
+            class="form-control"
+            id="inStock"
+            required
+            [(ngModel)]="dish.inStock"
+            name="inStock"
+          />
+        </div>
+
+        <button (click)="saveTutorial()" class="buttonSubmit">Submit</button>
+      </div>
+
+      <div *ngIf="submitted">
+        <div class="textSucces">Dish was submitted successfully!</div>
+        <button class="buttonSubmit" (click)="newTutorial()">Add</button>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="dish" [@fadeGrow] *ngFor="let dish of Menu| paginate: { itemsPerPage: itemsPerPage, currentPage: page };let odd=odd">
+      <div class="boxBorder"></div>
+      <div class="boxOutside;">
+        <div class="box3">
+            <div class="foto">
+              <img class="dishImage" [src]="getSource(dish)">
+            </div>
+          <div class="itemTitle">
+            {{dish.title}}
+          </div>
+          <div class="info">
+            <button class="buttonEdit" [routerLink]="['/DishEdit',dish.id]">EDIT</button>
+            <button class="buttonEdit" (click)="deleteDish(dish)">DELETE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pagination">
+    <div class="paginationSelect">
+      Items Per Page
+      <select [(ngModel)]="itemsPerPage" (change)="page=1">
+        <option *ngFor="let size of itemsPerPageArray" [ngValue]="size">
+          {{ size }}
+        </option>
+      </select>
+    </div>
+    <pagination-controls class="my-pagination" (pageChange)="page = $event"></pagination-controls>
+  </div>
+</section>

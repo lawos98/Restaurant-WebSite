@@ -1,0 +1,126 @@
+<section>
+  <div class="box" [@flyLeftInOut]="'in'">
+    <h1>{{dish.title}}</h1>
+    <div class="carousel">
+      <button class="buttonImageLeft" (click)="changeImagePage(-1)"><fa-icon [icon]="left"></fa-icon></button>
+      <div class="carouselItem" *ngFor="let image of dish.images;let index=index">
+        <img class="carouselImage" [src]=getSource(image) *ngIf="index==imagepage">
+      </div>
+      <button class="buttonImageRight" (click)="changeImagePage(1)"><fa-icon [icon]="right"></fa-icon></button>
+    </div>
+    <div class="box1">
+      <div class="dishInfo">
+        <h2>Dish Category:{{dish.category}}</h2>
+        <h2>Dish Type:{{dish.type}}</h2>
+        <h2>Dish Cuisine:{{dish.cuisine}}</h2>
+        <h2>Dish Cost:{{returnPrice(dish)}}</h2>
+        <h2>Dish in stock:{{dish.inStock}}</h2>
+        <h2>Dish igridients:{{dish.ingredients}}</h2>
+      </div>
+    </div>
+    <div class="box2">
+      <div class="rating">
+        <img id="star1" [src]="rating(getAVG(dish.ratings),1)" class="star">
+        <img id="star2" [src]="rating(getAVG(dish.ratings),2)" class="star">
+        <img id="star3" [src]="rating(getAVG(dish.ratings),3)" class="star">
+        <img id="star4" [src]="rating(getAVG(dish.ratings),4)" class="star">
+        <img id="star5" [src]="rating(getAVG(dish.ratings),5)" class="star">
+        <div class="itemtext">Score: {{getAVG(dish.ratings)|number:'1.1-1'}} by {{dish.ratings.length}}</div>
+      </div>
+      <div class="selectCount">
+        Count:{{NumberOfDishInCart(dish)}}
+        <div class="buttons">
+          <button class="buttonDish" (click)="addDish(dish,+1)" *ngIf="NumberOfDishInCart(dish)!=dish.inStock">+</button>
+          <button class="buttonDish"(click)="addDish(dish,-1)" *ngIf="NumberOfDishInCart(dish)>0">-</button>
+        </div>
+      </div>
+    </div>
+    <div class="box2">
+      <button class="buttonSubmit" (click)="returnBack()">
+        Return
+      </button>
+    </div>
+    <div class="boxComments">
+      <div class="comment" *ngFor="let comment of dish.commentRatings;let index=index">
+        <div class="commentInfo">
+          <div class="user">
+            {{dish.userRatings[index]}}
+          </div>
+          <div class="commentRating">
+            <img [src]="rating(dish.ratings[index],1)" class="star">
+            <img [src]="rating(dish.ratings[index],2)" class="star">
+            <img [src]="rating(dish.ratings[index],3)" class="star">
+            <img [src]="rating(dish.ratings[index],4)" class="star">
+            <img [src]="rating(dish.ratings[index],5)" class="star">
+          </div>
+        </div>
+        <div class="commentText">
+          {{comment}}
+        </div>
+      </div>
+      <div class="comment" *ngFor="let comment of dish.commentWitoutRating;let index=index">
+        <div class="commentInfo">
+          <div class="user">
+            {{dish.userWitoutRating[index]}}
+          </div>
+          <div class="commentRating">
+          </div>
+        </div>
+        <div class="commentText">
+          {{comment}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="box" *ngIf="checkIfUserCanRateThis()" [@flyLeftInOut]="'in'">
+    <form
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
+      <div class="form-group">
+        <div class="formLabel">
+        <label for="comment">Comment</label>
+          <div class="formRating" *ngIf="!showModeratorBoard">
+            <img [src]="rating(form.rating,1)" class="star" [ngClass]="returnStarClas(1)" (click)="form.rating=1" (mouseover)="activeRating=1" (mouseleave)="activeRating=0">
+            <img [src]="rating(form.rating,2)" class="star" [ngClass]="returnStarClas(2)" (click)="form.rating=2" (mouseover)="activeRating=2" (mouseleave)="activeRating=0">
+            <img [src]="rating(form.rating,3)" class="star" [ngClass]="returnStarClas(3)" (click)="form.rating=3" (mouseover)="activeRating=3" (mouseleave)="activeRating=0">
+            <img [src]="rating(form.rating,4)" class="star" [ngClass]="returnStarClas(4)" (click)="form.rating=4" (mouseover)="activeRating=4" (mouseleave)="activeRating=0">
+            <img [src]="rating(form.rating,5)" class="star" [ngClass]="returnStarClas(5)" (click)="form.rating=5" (mouseover)="activeRating=5" (mouseleave)="activeRating=0">
+          </div>
+        </div>
+        <input
+          type="text"
+          name="comment"
+          [(ngModel)]="form.comment"
+          required
+          minlength="50"
+          maxlength="250"
+          #comment="ngModel"
+        />
+        <div
+          role="alert"
+          *ngIf="comment.errors && f.submitted"
+        >
+          <div *ngIf="comment.errors['required']">Comment is required</div>
+          <div *ngIf="comment.errors['minlength']">
+            Comment must be at least 50 characters
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="buttonSubmit">
+          Submit
+        </button>
+      </div>
+      <div class="form-group">
+        <div
+          role="alert"
+          *ngIf="f.submitted">
+          Send comment failed: {{ errorMessage }}
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
