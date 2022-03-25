@@ -1,5 +1,5 @@
 ![Title](/images/title.png)
-<h1 align="center">Restaration</h1>Restaration
+<h1 align="center">Restaurant</h1>
 
 
 ## Description
