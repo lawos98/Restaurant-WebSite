@@ -1,27 +1,66 @@
-# Restaurant
+![Title](/images/title.png)
+<h1 align="center">Restaration</h1>Restaration
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.4.
 
-## Development server
+## Description
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+A restaurant website where you can order food, create your own account, send feedback and add comments. The role of moderator has additionally the possibility of adding, removing and editing dishes. The role of administrator would also allow the management of users and giving them appropriate permissions. The database contains, among others, information about products, opinions and users. 
 
-## Code scaffolding
+## Tech Stack
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+**Client:** Angular
 
-## Build
+**Server:** Node, Express
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+**Database:** MongoDB
 
-## Running unit tests
+**Database server:** Atlas
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+**Library:** Mongoose
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Features
 
-## Further help
+- Login validation
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Graphic display of stock missing dishes (green, yellow, red, etc.)
+
+- Filtering of dishes
+
+- Pagination of the list of dishes on the page
+
+- Persistence modes on the site
+
+- User banning system (no possibility to post comments)
+
+- Possibility to change currencies for a specific user
+
+## Test accounts
+
+- User {user;user123}
+
+- Moderator {mod;mod123}
+
+- Administrator {admin;admin123}
+
+- Banned user {ban;ban123}
+
+## Showcase
+#### Home Page
+![Home](/images/photo1.png)
+
+#### Dish List
+![Dishes](/images/photo2.png)
+
+#### Login Page
+![Login](/images/photo3.png)
+
+#### Cart Page
+![Cart](/images/photo4.png)
+
+#### Admin Page
+![Admin](/images/photo5.png)
+
+## Authors
+
+- [Jakub Spólnik](https://github.com/lawos98)
