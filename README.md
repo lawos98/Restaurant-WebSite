@@ -6,6 +6,8 @@
 
 A restaurant website where you can order food, create your own account, send feedback and add comments. The role of moderator has additionally the possibility of adding, removing and editing dishes. The role of administrator would also allow the management of users and giving them appropriate permissions. The database contains, among others, information about products, opinions and users. 
 
+*the graphic styling is for presentation purposes only and the project focused on technical aspects
+
 ## Tech Stack
 
 **Client:** Angular
